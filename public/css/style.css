@@ -1,7 +1,9 @@
 *{margin: 0; padding: 0; box-sizing: border-box; color: inherit;}
+a{text-decoration: none;}
 .container{max-width: 400px; margin: auto; }
 .flex{display: flex;}
 .grid{display: grid;}
+
 
 header .menu{align-items: center; justify-content: space-between; padding: .5rem; border-bottom: 1px solid #999;}
 header .menu h2{font-size: 1.75rem;}
@@ -12,7 +14,8 @@ section .gameBoard{padding-top: 3rem; grid-template-columns: repeat(6, 55px); ju
 section .gameBoard .item{border: 2px solid rgb(202, 202, 202); height: 55px;}
 
 section .keyBoard{ padding-top: 3rem; row-gap: .5rem;  font-weight: 900; text-align: center; justify-content: center;}
-section .keyBoard .item{ width: 33px; height: 60px; line-height: 55px; border-radius: 4px; background: #d4d6da;}
+section .keyBoard .item:hover{background: #999; transition: 0.3s;}
+section .keyBoard .item{ width: 33px; height: 60px; border-radius: 4px; background: #d4d6da; line-height: 55px; transition: 0.3s; cursor: pointer;}
 section .keyBoard i{font-size: 2.5rem; margin-top: 10px;}
 section .keyBoard .firstLine,
 section .keyBoard .thirdLine{width: 400px; justify-content: space-between;}
