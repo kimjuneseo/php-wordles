@@ -4,9 +4,12 @@ const keyArr = [];
 let count = -1;
 const onWindowKeyDown = (e) => {
     count++;
-    console.log($(".gameBoard .item")[count]);
-    $(".gameBoard .item")[count].innerText = e.key
-    
+    if(count < 30){
+        const regex = /[^0-9]/;
+        const keyInput = e.key;
+        console.log(keyInput == regex)
+        $(".gameBoard .item")[count].innerText = keyInput.toUpperCase();
+    }    
 };
 
 window.addEventListener("keydown", onWindowKeyDown);

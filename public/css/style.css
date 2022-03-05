@@ -11,7 +11,8 @@ header .menu .sub{align-items: center; column-gap: .4rem;}
 header .menu i{font-size: 1.5rem;}
 
 section .gameBoard{padding-top: 3rem; grid-template-columns: repeat(6, 55px); justify-content: center; gap: 5px;}
-section .gameBoard .item{border: 2px solid rgb(202, 202, 202); height: 55px;}
+section .gameBoard .item{border: 2px solid rgb(202, 202, 202); height: 55px; text-align: center; line-height: 50px; font-size: 2rem; font-weight: 900;}
+
 
 section .keyBoard{ padding-top: 3rem; row-gap: .5rem;  font-weight: 900; text-align: center; justify-content: center;}
 section .keyBoard .item:hover{background: #999; transition: 0.3s;}
