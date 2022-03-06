@@ -7,7 +7,7 @@ const onWindowKeyDown = (e) => {
     if(count < 30){
         const regex = /[^0-9]/;
         const keyInput = e.key;
-        console.log(keyInput == regex)
+        // console.log(keyInput.Mregex)
         $(".gameBoard .item")[count].innerText = keyInput.toUpperCase();
     }    
 };
