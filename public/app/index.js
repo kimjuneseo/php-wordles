@@ -1,24 +1,47 @@
 const $ = (el, option = true) => option ? document.querySelector(el) : document.querySelectorAll(el);
-const inputItem = (txt) => $(".gameBoard .item", false)[count - 1].innerText = txt;
-const fiveTextComfirm = () => count % 5  ? false : alert("5글자를 입력해주세요");
+const writingItemText = (txt) => $(".gameBoard .item", false)[count].innerText = txt;
+const fiveTextComfirm = () => count % 5 ? alert("5글자를 입력해주세요") : false ;
 
 const keyArr = []; 
-let count = 0;
+let count = -1;
 const onWindowKeyDown = ({key}) => {
-    count++;
-    if(count < 30){
+    if(key === 'Backspace' && count !== -1 && count < 30){
+        writingItemText('');
+        count--;
+        return;
+    }
+    
+    if(count < 29){
+        count++;
+        console.log(count)
+        if(key === 'Enter'){
+            fiveTextComfirm();
+            count--;
+            return
+        }
         if(key.match(/[^0-9`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/) && key.length === 1  &&  key !== ' '){
-            inputItem(key.toUpperCase());
+            writingItemText(key.toUpperCase());
             return;
         }
         count--;
     }    
 };
 
-const onItemClick = (e) => {
-    count++;
+const onItemClick = ({target}) => {
     if(count < 30){
-        inputItem(e.target.innerText);
+        count++;
+        if(target.innerText === 'ENTER'){
+            fiveTextComfirm();
+            return;
+        }
+        
+        if(target.innerText === '' && count > 0){
+            count--;
+            writingItemText('');
+            count--;
+            return;
+        }
+        writingItemText(target.innerText);
     }
 };
 
