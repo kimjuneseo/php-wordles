@@ -1,8 +1,9 @@
 const $ = (el, option = true) => option ? document.querySelector(el) : document.querySelectorAll(el);
-const inputItem = (txt) => $(".gameBoard .item", false)[count].innerText = txt;
+const inputItem = (txt) => $(".gameBoard .item", false)[count - 1].innerText = txt;
+const fiveTextComfirm = () => count % 5  ? false : alert("5글자를 입력해주세요");
 
 const keyArr = []; 
-let count = -1;
+let count = 0;
 const onWindowKeyDown = ({key}) => {
     count++;
     if(count < 30){
