@@ -2,13 +2,14 @@ const $ = (el) => document.querySelectorAll(el);
 
 const keyArr = []; 
 let count = -1;
-const onWindowKeyDown = (e) => {
+const onWindowKeyDown = ({key}) => {
     count++;
     if(count < 30){
-        const regex = /[^0-9]/;
-        console.log(e.key.match(/^[a-zA-Z]/))
-        // const keyInput = e.key.match(/[^0-9]/);
-        // $(".gameBoard .item")[count].innerText = keyInput.toUpperCase();
+        if(key.match(/[^0-9`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/) && key.length === 1  &&  key !== ' '){
+            $(".gameBoard .item")[count].innerText = key.toUpperCase();
+            return;
+        }
+        count--;
     }    
 };
 
