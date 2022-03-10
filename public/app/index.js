@@ -3,37 +3,32 @@ const writingItemText = (txt) => $(".gameBoard .item", false)[count].innerText =
 const fiveTextComfirm = () => count % 5 === 0 ? true : alert("5글자를 입력해주세요")  ;
 
 const keyArr = []; 
-let count = -1;
+let count = 0;
 const onWindowKeyDown = ({key}) => {
-    if(key === 'Backspace' && count !== -1 && count < 30){
-        writingItemText('');
+    if(key === 'Backspace' && count !== 0){
         count--;
+        writingItemText('');
         return;
     }
+    if(key === 'Enter' ){
+        if(fiveTextComfirm()){
+            keyArr.forEach((e, idx) => {
+                // idx % 5 === 0 ? console.log(keyArr.slice(idx/5,idx/5*5)) : false;
+                count % 5 === 0 ? console.log(keyArr.slice(count / 5 * 5, count / 5 * 5)) : false;
     
-    if(count < 29){
-        count++;
-        if(key === 'Enter'){
-
-            if(fiveTextComfirm()){
-                keyArr.forEach((e, idx) => {
-                
-                    // idx % 5 === 0 ? console.log(keyArr.slice(idx/5,idx/5*5)) : false;
-                    console.log(count);
-                    count % 5 === 0 ? console.log(keyArr.slice(count/4,count/5*5)) : false;
-        
-                
-                })
-            }
-            count--;
-            return
+            
+            })
         }
+        return;
+    }
+    if(count < 30){
         if(key.match(/[^0-9`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/) && key.length === 1  &&  key !== ' '){
             keyArr.push(key.toUpperCase());
             writingItemText(key.toUpperCase());
+            count++;
             return;
         }
-        count--;
+        // count--;
     }    
 };
 
