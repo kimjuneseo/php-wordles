@@ -91,7 +91,7 @@
                 <div class="item">B</div>
                 <div class="item">N</div>
                 <div class="item">M</div>
-                <div class="item"><i class='bx bxs-tag-x'></i></div>
+                <div class="item"><i class='bx bxs-tag-x Backspace'></i></div>
             </div>
         </div>
     </section>
