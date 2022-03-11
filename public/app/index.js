@@ -1,7 +1,7 @@
 const $ = (el, option = true) => option ? document.querySelector(el) : document.querySelectorAll(el);
 const writingItemText = (txt) => $(".gameBoard .item", false)[count].innerText = txt;
 const fiveTextComfirm = () => count % 5 === 0 ?  true : alert("5글자를 입력해주세요");
-
+   
 const keyArr = []; 
 let count = 0;
 
