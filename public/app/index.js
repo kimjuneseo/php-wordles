@@ -4,6 +4,7 @@ const fiveTextComfirm = () => count % 5 === 0 ?  true : alert("5글자를 입력
    
 const keyArr = []; 
 let count = 0;
+let lineCount = 1;
 
 const itemListener = (txt, target, state = true) => {
     if(state ? txt === 'Backspace' : target.classList.contains("Backspace") && count !== 0){
@@ -14,18 +15,12 @@ const itemListener = (txt, target, state = true) => {
     
     if(txt.toUpperCase() === 'ENTER' ){
         if(fiveTextComfirm()){
-            keyArr.forEach((e, idx = 1) => {
-                console.log(e)
-                // idx % 5 === 0 ? console.log(keyArr.slice(idx/5,idx/5*5)) : false;
-                idx % 5 === 0 ?   console.log(e) : false;
-    
-            
-            })
+            lineCount++
         }
         return;
     }
 
-    if(count < 30){
+    if( count < lineCount * 5  ){
         if(txt.match(/[^0-9`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/) && txt.length === 1  &&  txt !== ' '){
             keyArr.push(txt.toUpperCase());
             writingItemText(txt.toUpperCase());
