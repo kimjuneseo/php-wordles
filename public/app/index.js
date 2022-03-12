@@ -27,7 +27,7 @@ const itemListener = (txt, target, state = true) => {
             count++;
             return;
         }
-    }    
+    }     
 
 }
 const onWindowKeyDown = ({key}) => {
